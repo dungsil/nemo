@@ -1,0 +1,21 @@
+[versions]
+java = "21"
+kotlin = "1.9.25"
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }
+
+[bundles]
+api = [
+  "kotlin-stdlib",
+  "kotlin-reflect"
+]
+
+test = [
+  "kotlin-test"
+]
