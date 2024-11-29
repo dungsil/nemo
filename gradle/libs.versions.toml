@@ -1,7 +1,7 @@
 [versions]
 java = "21"
 kotlin = "1.9.25"
-kotlinx-kover = "0.8.2"
+kotlinx-kover = "0.8.3"
 dokka = "2.0.0-Beta"
 
 [plugins]
