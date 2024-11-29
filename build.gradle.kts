@@ -11,27 +11,7 @@ plugins {
 group = properties["nemo.group"]!!
 version = properties["nemo.version"]!!
 
-sourceSets {
-  create("testIntegration") {
-    val baseDir = "src/test-integration"
-
-    kotlin.srcDirs("$baseDir/kotlin")
-    resources.srcDirs("$baseDir/resources")
-
-    compileClasspath += main.get().output + test.get().output
-    runtimeClasspath += main.get().output + test.get().output
-  }
-}
-
 configurations {
-  named("testIntegrationImplementation") {
-    extendsFrom(implementation.get())
-    extendsFrom(testImplementation.get())
-  }
-  named("testIntegrationRuntimeOnly") {
-    extendsFrom(testRuntimeOnly.get())
-  }
-
   // https://github.com/Kotlin/dokka/issues/3472#issuecomment-2244628081
   matching { it.name.startsWith("dokka") }.configureEach {
     resolutionStrategy.eachDependency {
@@ -90,19 +70,5 @@ dokka {
 tasks {
   test {
     useJUnitPlatform()
-  }
-
-  val testIntegration = create<Test>("testIntegration") {
-    group = test.get().group
-    useJUnitPlatform()
-
-    sourceSets.named("testIntegration").get().let {
-      classpath = it.runtimeClasspath
-      testClassesDirs = it.output.classesDirs
-    }
-  }
-
-  check {
-    dependsOn(testIntegration)
   }
 }
