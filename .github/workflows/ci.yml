@@ -153,13 +153,13 @@ jobs:
       - name: Generate documentation
         run: |
           chmod +x ./gradlew
-          ./gradlew dokkaGenerateModuleHtml
+          ./gradlew dokkaGenerate
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload Github Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'build/dokka-module/html/module/'
+          path: 'build/dokka/html/'
       - id: deployment
         name: Deploy to GitHub pages
         uses: actions/deploy-pages@v4
