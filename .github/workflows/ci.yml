@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+      - 'gradle/**'
+      - '**/*.gradle.kts'
+      - '**/*.versions.toml'
+      - 'gradle.properties'
 
 jobs:
   build:
