@@ -2,6 +2,7 @@
 java = "21"
 kotlin = "1.9.25"
 kotlinx-kover = "0.8.3"
+kotlinLogging = "7.0.0"
 dokka = "2.0.0-Beta"
 dokka-jackson = "2.15.3"
 
@@ -21,6 +22,7 @@ spring-dependencyManagement = { id = "io.spring.dependency-management", version.
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }
+kotlinLogging = { module = "io.github.oshai:kotlin-logging-jvm", version.ref = "kotlinLogging" }
 
 spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools" }
 spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
@@ -30,6 +32,7 @@ spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-star
 api = [
   "kotlin-stdlib",
   "kotlin-reflect",
+  "kotlinLogging",
   "spring-boot-starter-actuator"
 ]
 
