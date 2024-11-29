@@ -31,6 +31,15 @@ configurations {
   named("testIntegrationRuntimeOnly") {
     extendsFrom(testRuntimeOnly.get())
   }
+
+  // https://github.com/Kotlin/dokka/issues/3472#issuecomment-2244628081
+  matching { it.name.startsWith("dokka") }.configureEach {
+    resolutionStrategy.eachDependency {
+      if (requested.group.startsWith("com.fasterxml.jackson")) {
+        useVersion(libs.versions.dokka.jackson.get())
+      }
+    }
+  }
 }
 
 dependencies {

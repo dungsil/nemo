@@ -3,6 +3,7 @@ java = "21"
 kotlin = "1.9.25"
 kotlinx-kover = "0.8.3"
 dokka = "2.0.0-Beta"
+dokka-jackson = "2.15.3"
 
 spring-boot = "3.4.0"
 spring-dependencyManagement = "1.1.6"
