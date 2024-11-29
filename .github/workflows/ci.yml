@@ -119,7 +119,7 @@ jobs:
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          directory: build/test-results/
+          directory: build/test-results/testIntegration/
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
