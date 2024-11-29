@@ -1,5 +1,6 @@
 plugins {
   alias(libs.plugins.kotlin)
+  alias(libs.plugins.kotlinx.kover)
   alias(libs.plugins.dokka)
 }
 
@@ -14,6 +15,16 @@ dependencies {
 java {
   toolchain {
     languageVersion = JavaLanguageVersion.of(libs.versions.java.get())
+  }
+}
+
+kover {
+  reports {
+    verify {
+      rule {
+        minBound(80) // 최소 커버리지 범위
+      }
+    }
   }
 }
 
