@@ -70,6 +70,6 @@ dokka {
 tasks {
   test {
     useJUnitPlatform()
-    jvmArgs("-XX:+EnableDynamicAgentLoading") // Mockito
+    jvmArgs("-Xshare:off", "-XX:+EnableDynamicAgentLoading") // Mockito
   }
 }
