@@ -1,5 +1,6 @@
 plugins {
   alias(libs.plugins.kotlin)
+  alias(libs.plugins.dokka)
 }
 
 group = properties["nemo.group"]!!
@@ -13,6 +14,23 @@ dependencies {
 java {
   toolchain {
     languageVersion = JavaLanguageVersion.of(libs.versions.java.get())
+  }
+}
+
+dokka {
+  dokkaSourceSets.main {
+    includes.from("src/main/kdoc/modules.md", "src/main/kdoc/packages.md")
+
+    sourceLink {
+      remoteUrl(properties["nemo.repository.source-url"] as String)
+      remoteLineSuffix.set(properties["nemo.repository.line-suffix"] as String)
+    }
+  }
+
+  pluginsConfiguration {
+    html {
+      customStyleSheets.from("src/main/kdoc/custom-styles.css")
+    }
   }
 }
 

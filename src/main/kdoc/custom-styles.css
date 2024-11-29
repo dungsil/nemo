@@ -1,0 +1,4 @@
+/* disable ecosystem button */
+.filter-section, .platform-tags {
+  display: none;
+}
