@@ -86,6 +86,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: integration-test-results-${{ github.sha }}
+          path: build/
   coverage-reports:
     name: Coverage reports with Codecov
     runs-on: ubuntu-latest
