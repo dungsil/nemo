@@ -47,6 +47,12 @@ kover {
         minBound(80) // 최소 커버리지 범위
       }
     }
+
+    filters {
+      excludes {
+        classes("nemo.**\$log\$*")
+      }
+    }
   }
 }
 

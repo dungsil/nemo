@@ -1,7 +1,10 @@
 package nemo
 
+import nemo.common.logging.createLogger
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.boot.runApplication
+import org.springframework.context.event.EventListener
 
 /**
  * NEMO 메인 클래스
@@ -11,6 +14,13 @@ import org.springframework.boot.runApplication
  */
 @SpringBootApplication
 class Nemo {
+  private val log = createLogger {}
+
+  @EventListener
+  protected fun onReady(e: ApplicationReadyEvent) {
+    log.info { "NEMO is ready!!" }
+  }
+
   companion object {
     @JvmStatic
     fun main(vararg args: String) {
