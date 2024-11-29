@@ -1,0 +1,26 @@
+spring:
+  main:
+    banner-mode: off
+    keep-alive: true
+    log-startup-info: false
+    lazy-initialization: true
+  threads:
+    virtual:
+      enabled: true
+logging:
+  level:
+    root: warn
+    nemo: info
+  charset:
+    file: UTF-8
+    console: UTF-8
+  pattern:
+    file: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] %-36.36logger{36}: [%5p] %m%n%wEx"
+    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%thread] %clr(%-36.36logger{36}){cyan}: [%clr(%5p)] %m%n%wEx"
+  file:
+    path: ./logs
+    name: "${logging.file.path}/nemo.log"
+  logback.rollingpolicy:
+    total-size-cap: 1GB
+    max-file-size: 20MB
+    max-history: 365

@@ -27,7 +27,7 @@ jobs:
       - name: Build with Gradle
         run: |
           chmod +x ./gradlew
-          ./gradlew build -x test -x koverVerify
+          ./gradlew build -x check
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:

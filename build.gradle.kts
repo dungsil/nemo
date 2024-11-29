@@ -1,20 +1,53 @@
 plugins {
   alias(libs.plugins.kotlin)
+  alias(libs.plugins.kotlin.spring)
   alias(libs.plugins.kotlinx.kover)
   alias(libs.plugins.dokka)
+
+  alias(libs.plugins.spring.boot)
+  alias(libs.plugins.spring.dependencyManagement)
 }
 
 group = properties["nemo.group"]!!
 version = properties["nemo.version"]!!
 
+sourceSets {
+  create("testIntegration") {
+    val baseDir = "src/test-integration"
+
+    kotlin.srcDirs("$baseDir/kotlin")
+    resources.srcDirs("$baseDir/resources")
+
+    compileClasspath += main.get().output + test.get().output
+    runtimeClasspath += main.get().output + test.get().output
+  }
+}
+
+configurations {
+  named("testIntegrationImplementation") {
+    extendsFrom(implementation.get())
+    extendsFrom(testImplementation.get())
+  }
+  named("testIntegrationRuntimeOnly") {
+    extendsFrom(testRuntimeOnly.get())
+  }
+}
+
 dependencies {
   implementation(libs.bundles.api)
+  developmentOnly(libs.bundles.dev)
   testImplementation(libs.bundles.test)
 }
 
 java {
   toolchain {
     languageVersion = JavaLanguageVersion.of(libs.versions.java.get())
+  }
+}
+
+kotlin {
+  compilerOptions {
+    freeCompilerArgs = properties["kotlin.compiler.free-args"].toString().split(" ")
   }
 }
 
@@ -48,5 +81,19 @@ dokka {
 tasks {
   test {
     useJUnitPlatform()
+  }
+
+  val testIntegration = create<Test>("testIntegration") {
+    group = test.get().group
+    useJUnitPlatform()
+
+    sourceSets.named("testIntegration").get().let {
+      classpath = it.runtimeClasspath
+      testClassesDirs = it.output.classesDirs
+    }
+  }
+
+  check {
+    dependsOn(testIntegration)
   }
 }
