@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: v20241202-01
+      author: NEMO maintainers
+      changes:
+        - createSequence:
+            sequenceName: id_generator--users
+            startValue: 1001
+            incrementBy: 1
+        - createTable:
+            tableName: users
+            remarks: 사용자 테이블
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  remarks: 사용자 식별자
+                  defaultValueSequenceNext: id_generator--users
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: users--pk
+              - column:
+                  name: username
+                  type: varchar(20)
+                  remarks: 사용자 계정
+                  constraints:
+                    nullable: false
+                    unique: true
+                    uniqueConstraintName: users__username--uk
+              - column:
+                  name: joined_at
+                  type: timestamptz
+                  remarks: 가입일시
+                  defaultValueComputed: "now()"
+                  constraints:
+                    nullable: false
