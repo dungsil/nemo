@@ -111,6 +111,9 @@ tasks {
     val mockitoAgent = classpath.find { it.name.startsWith("mockito-core") }!!.absolutePath
 
     useJUnitPlatform()
+    systemProperties(
+      "spring.profiles.active" to "test"
+    )
     jvmArgs(
       "-Xshare:off",
       "-javaagent:$mockitoAgent",
