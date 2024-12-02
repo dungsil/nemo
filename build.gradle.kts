@@ -76,6 +76,11 @@ kover {
           "kotlin.Exception",
           "java.lang.Exception",
         )
+
+        // 어노테이션 제외
+        annotatedBy(
+          "org.springframework.context.annotation.Configuration",
+        )
       }
     }
   }
