@@ -8,6 +8,7 @@ dokka-jackson = "2.15.3"
 
 spring-boot = "3.4.0"
 spring-dependencyManagement = "1.1.6"
+springBootDatasourceDecorator = "1.10.0"
 
 hibernate = "6.6.2.Final"
 
@@ -33,6 +34,7 @@ spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools
 spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+p6spy-spring-boot-starter = { module = "com.github.gavlyukovskiy:p6spy-spring-boot-starter", version.ref = "springBootDatasourceDecorator" }
 
 liquibase = { module = "org.liquibase:liquibase-core" }
 hibernate-jpamodelgen = { module = "org.hibernate.orm:hibernate-jpamodelgen" }
@@ -57,7 +59,8 @@ runtime = [
 ]
 
 dev = [
-  "spring-boot-devtools"
+  "spring-boot-devtools",
+  "p6spy-spring-boot-starter"
 ]
 
 test = [

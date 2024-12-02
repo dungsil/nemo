@@ -23,9 +23,14 @@ configurations {
       }
     }
   }
+
+  compileOnly {
+    extendsFrom(annotationProcessor.get())
+  }
 }
 
 dependencies {
+  annotationProcessor(libs.bundles.annotation)
   implementation(libs.bundles.api)
   runtimeOnly(libs.bundles.runtime)
   developmentOnly(libs.bundles.dev)

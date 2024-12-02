@@ -1,0 +1,16 @@
+logging:
+  level:
+    root: info
+    nemo: debug
+    org.springframework.boot:
+      devtools: warn
+  file:
+    path: ${java.io.tmpdir}
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+      multiline: true
+      logging: slf4j
+      log-format: "%(sql) -- %(executionTime)ms"
