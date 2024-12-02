@@ -16,6 +16,9 @@ import org.springframework.context.annotation.Configuration
 @EnableCaching(mode = ASPECTJ)
 class CacheConfig : CacheManagerCustomizer<CaffeineCacheManager> {
   override fun customize(cacheManager: CaffeineCacheManager) {
-    cacheManager.isAllowNullValues = false
+    cacheManager.apply {
+      isAllowNullValues = false
+      setCacheSpecification("maximumSize=1000,expireAfterWrite=1h")
+    }
   }
 }
