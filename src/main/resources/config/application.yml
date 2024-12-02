@@ -11,6 +11,7 @@ spring:
     url: "jdbc:h2:./build/nemo.db;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE"
     username: "sa"
     password: ""
+
   liquibase:
     change-log: "classpath:db/changelog/_main.yaml"
     database-change-log-table: db_changelog

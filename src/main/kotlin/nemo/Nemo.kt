@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.boot.runApplication
 import org.springframework.context.event.EventListener
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories
-import org.springframework.data.repository.config.BootstrapMode.LAZY
 
 /**
  * NEMO 메인 클래스
@@ -16,7 +14,6 @@ import org.springframework.data.repository.config.BootstrapMode.LAZY
  * @since 2024.1.0
  */
 @EntityScan
-@EnableJpaRepositories(bootstrapMode = LAZY) // JPA 저장소 스캔
 @SpringBootApplication
 class Nemo {
   private val log = createLogger {}
