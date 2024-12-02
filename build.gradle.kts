@@ -61,7 +61,14 @@ kover {
 
     filters {
       excludes {
+        // 클래스 제외
         classes("nemo.**\$log\$*")
+
+        // 상속된 클래스 제외
+        inheritedFrom(
+          "kotlin.Exception",
+          "java.lang.Exception",
+        )
       }
     }
   }
@@ -86,7 +93,12 @@ dokka {
 
 tasks {
   test {
+    val mockitoAgent = classpath.find { it.name.startsWith("mockito-core") }!!.absolutePath
+
     useJUnitPlatform()
-    jvmArgs("-Xshare:off", "-XX:+EnableDynamicAgentLoading") // Mockito
+    jvmArgs(
+      "-Xshare:off",
+      "-javaagent:$mockitoAgent",
+    )
   }
 }
