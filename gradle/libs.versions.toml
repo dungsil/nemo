@@ -9,6 +9,8 @@ dokka-jackson = "2.15.3"
 spring-boot = "3.4.0"
 spring-dependencyManagement = "1.1.6"
 
+hibernate = "6.6.2.Final"
+
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
@@ -18,6 +20,8 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 spring-dependencyManagement = { id = "io.spring.dependency-management", version.ref = "spring-dependencyManagement" }
+
+hibernate = { id = "org.hibernate.orm", version.ref = "hibernate" }
 
 [libraries]
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8" }
@@ -31,6 +35,7 @@ spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 
 liquibase = { module = "org.liquibase:liquibase-core" }
+hibernate-jpamodelgen = { module = "org.hibernate.orm:hibernate-jpamodelgen" }
 h2 = { module = "com.h2database:h2" }
 
 [bundles]
@@ -40,6 +45,10 @@ api = [
   "kotlinLogging",
   "spring-boot-starter-actuator",
   "spring-boot-starter-data-jpa"
+]
+
+annotation = [
+  "hibernate-jpamodelgen"
 ]
 
 runtime = [

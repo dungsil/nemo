@@ -7,6 +7,8 @@ plugins {
 
   alias(libs.plugins.spring.boot)
   alias(libs.plugins.spring.dependencyManagement)
+
+  alias(libs.plugins.hibernate)
 }
 
 group = properties["nemo.group"]!!
@@ -88,6 +90,14 @@ dokka {
     html {
       customStyleSheets.from("src/main/kdoc/custom-styles.css")
     }
+  }
+}
+
+hibernate {
+  enhancement {
+    enableDirtyTracking = true
+    enableLazyInitialization = true
+    enableAssociationManagement = true
   }
 }
 
