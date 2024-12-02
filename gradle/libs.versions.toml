@@ -9,6 +9,7 @@ dokka-jackson = "2.15.3"
 spring-boot = "3.4.0"
 spring-dependencyManagement = "1.1.6"
 springBootDatasourceDecorator = "1.10.0"
+springDotenv = "4.0.0"
 
 hibernate = "6.6.2.Final"
 
@@ -36,6 +37,7 @@ spring-boot-starter-aop = { module = "org.springframework.boot:spring-boot-start
 spring-boot-starter-cache = { module = "org.springframework.boot:spring-boot-starter-cache" }
 spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+springDotenv = { module = "me.paulschwarz:spring-dotenv", version.ref = "springDotenv" }
 p6spy-spring-boot-starter = { module = "com.github.gavlyukovskiy:p6spy-spring-boot-starter", version.ref = "springBootDatasourceDecorator" }
 
 hibernate-jcache = { module = "org.hibernate.orm:hibernate-jcache" }
@@ -55,22 +57,23 @@ api = [
   "spring-boot-starter-aop",
   "spring-boot-starter-cache",
   "spring-boot-starter-data-jpa",
-  "caffeine"
-]
-
-annotation = [
-  "hibernate-jpamodelgen"
+  "caffeine",
 ]
 
 runtime = [
+  "springDotenv",
   "hibernate-jcache",
   "liquibase",
-  "h2"
+  "h2",
+]
+
+annotation = [
+  "hibernate-jpamodelgen",
 ]
 
 dev = [
   "spring-boot-devtools",
-  "p6spy-spring-boot-starter"
+  "p6spy-spring-boot-starter",
 ]
 
 test = [
