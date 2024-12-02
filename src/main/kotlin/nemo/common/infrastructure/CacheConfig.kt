@@ -18,6 +18,8 @@ class CacheConfig : CacheManagerCustomizer<CaffeineCacheManager> {
   override fun customize(cacheManager: CaffeineCacheManager) {
     cacheManager.apply {
       isAllowNullValues = false
+
+      // TODO: 외부 구성 속성으로 변경
       setCacheSpecification("maximumSize=1000,expireAfterWrite=1h")
     }
   }
