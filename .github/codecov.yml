@@ -4,3 +4,9 @@ coverage:
     project:
       default:
         target: 0.8
+
+comment:
+  behavior: default
+  layout: "files, diff, uncovered"
+  require_base: false
+  require_changes: false
