@@ -1,5 +1,6 @@
 plugins {
   alias(libs.plugins.kotlin)
+  alias(libs.plugins.kotlin.jpa)
   alias(libs.plugins.kotlin.spring)
   alias(libs.plugins.kotlinx.kover)
   alias(libs.plugins.dokka)
@@ -24,6 +25,7 @@ configurations {
 
 dependencies {
   implementation(libs.bundles.api)
+  runtimeOnly(libs.bundles.runtime)
   developmentOnly(libs.bundles.dev)
   testImplementation(libs.bundles.test)
 }
@@ -38,6 +40,15 @@ kotlin {
   compilerOptions {
     freeCompilerArgs = properties["kotlin.compiler.free-args"].toString().split(" ")
   }
+}
+
+// kotlin-spring
+allOpen {
+  annotations(
+    "jakarta.persistence.Entity",
+    "jakarta.persistence.Embeddable",
+    "jakarta.persistence.MappedSuperclass",
+  )
 }
 
 kover {
