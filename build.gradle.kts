@@ -1,4 +1,6 @@
 plugins {
+  idea
+
   alias(libs.plugins.kotlin)
   alias(libs.plugins.kotlin.jpa)
   alias(libs.plugins.kotlin.spring)
@@ -35,6 +37,13 @@ dependencies {
   runtimeOnly(libs.bundles.runtime)
   developmentOnly(libs.bundles.dev)
   testImplementation(libs.bundles.test)
+}
+
+idea {
+  module {
+    isDownloadJavadoc = true
+    isDownloadSources = true
+  }
 }
 
 java {
