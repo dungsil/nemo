@@ -10,7 +10,7 @@ spring-boot = "3.4.0"
 spring-dependencyManagement = "1.1.6"
 springBootDatasourceDecorator = "1.10.0"
 
-hibernate = "6.6.2.Final"
+hibernate = "6.6.3.Final"
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
