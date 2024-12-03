@@ -7,6 +7,14 @@ spring:
   threads:
     virtual:
       enabled: true
+  ssl:
+    bundle:
+      pem:
+        https:
+          reload-on-update: true
+          keystore:
+            certificate: "file:${NEMO_HTTPS_CERTIFICATE}"
+            private-key: "file:${NEMO_HTTPS_CERTIFICATE_KEY}"
   datasource:
     url: "jdbc:h2:./build/nemo.db;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE"
     username: "sa"
@@ -25,6 +33,16 @@ spring:
       hibernate.cache.use_second_level_cache: true
       hibernate.cache.region.factory_class: jcache
       hibernate.javax.cache.provider: com.github.benmanes.caffeine.jcache.spi.CaffeineCachingProvider
+
+server:
+  shutdown: graceful
+  port: ${NEMO_PORT:8443}
+  ssl:
+    bundle: https
+  compression:
+    enabled: true
+  http2:
+    enabled: true
 
 logging:
   level:

@@ -97,7 +97,7 @@ kover {
 
 dokka {
   dokkaSourceSets.main {
-    includes.from("src/main/kdoc/modules.md", "src/main/kdoc/packages.md")
+    includes.from("docs/kdoc/modules.md", "docs/kdoc/packages.md")
 
     sourceLink {
       remoteUrl(properties["nemo.repository.source-url"] as String)
@@ -107,7 +107,7 @@ dokka {
 
   pluginsConfiguration {
     html {
-      customStyleSheets.from("src/main/kdoc/custom-styles.css")
+      customStyleSheets.from("docs/kdoc/custom-styles.css")
     }
   }
 }
