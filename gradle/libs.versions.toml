@@ -7,7 +7,7 @@ dokka = "2.0.0-Beta"
 dokka-jackson = "2.15.3"
 
 spring-boot = "3.4.0"
-spring-dependencyManagement = "1.1.6"
+spring-dependencyManagement = "1.1.7"
 springBootDatasourceDecorator = "1.10.0"
 springDotenv = "4.0.0"
 
