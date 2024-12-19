@@ -6,7 +6,7 @@ kotlinLogging = "7.0.3"
 dokka = "2.0.0-Beta"
 dokka-jackson = "2.15.3"
 
-spring-boot = "3.4.0"
+spring-boot = "3.4.1"
 spring-dependencyManagement = "1.1.6"
 springBootDatasourceDecorator = "1.10.0"
 springDotenv = "4.0.0"
